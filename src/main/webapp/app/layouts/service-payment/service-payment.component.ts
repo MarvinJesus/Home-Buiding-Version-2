@@ -13,33 +13,35 @@ export class ServicePaymentComponent implements OnInit {
   ngOnInit(): void {
     this.initConfig();
   }
+  public getPackage() {}
   public initConfig(): void {
     this.payPalConfig = {
-      currency: 'EUR',
       clientId: 'AUhE1PVR_p5RwD-Rdvd9uD0zV_cSrJ6c933Hlmr3Dnls7KhpbS0Cfsn8uunzo_UIySZ5nv_HBCgbJqW2',
       createOrderOnClient: (data: any): any => {
         this.order = {
           intent: 'CAPTURE',
           purchase_units: [
             {
+              description: 'Paquete publicitario para subastas y promoción de alquiler',
               amount: {
-                currency_code: 'EUR',
-                value: '9.99',
+                currency_code: 'USD',
+                value: '1',
                 breakdown: {
                   item_total: {
-                    currency_code: 'EUR',
-                    value: '9.99',
+                    currency_code: 'USD',
+                    value: '1',
                   },
                 },
               },
               items: [
                 {
-                  name: 'Enterprise Subscription',
+                  sku: 'Hola',
+                  name: 'Subscription a paquete de publicidad',
                   quantity: '1',
                   category: 'DIGITAL_GOODS',
                   unit_amount: {
-                    currency_code: 'EUR',
-                    value: '9.99',
+                    currency_code: 'USD',
+                    value: '1',
                   },
                 },
               ],
